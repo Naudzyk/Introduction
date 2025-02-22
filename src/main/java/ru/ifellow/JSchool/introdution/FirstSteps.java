@@ -39,11 +39,16 @@ public class FirstSteps {
     }
 
     public int mul(int[] array){
-        int res = 1;
-        for (int x : array){
-            res *= x;
-        }
-        return res;
+         if (array == null || array.length == 0) {
+                return 0;
+            }
+
+            int product = 1;
+            for (int x : array) {
+                product *= x;
+            }
+
+            return product;
     }
 
     public int min(int[] array){
