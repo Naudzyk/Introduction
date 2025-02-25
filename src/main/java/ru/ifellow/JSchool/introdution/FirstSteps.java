@@ -39,16 +39,12 @@ public class FirstSteps {
     }
 
     public int mul(int[] array){
-         if (array == null || array.length == 0) {
-                return 0;
-            }
-
-            int product = 1;
-            for (int x : array) {
-                product *= x;
-            }
-
-            return product;
+         if (array.length == 0) return 0;
+         int product = 1;
+         for (int x : array) {
+             product *= x;
+         }
+         return product;
     }
 
     public int min(int[] array){
@@ -71,7 +67,7 @@ public class FirstSteps {
 
     public double average(int[] array){
         if(array == null || array.length == 0) return 0;
-        int sum = 0;
+        long sum = 0;
         for(int x : array){
             sum += x;
         }
@@ -80,16 +76,16 @@ public class FirstSteps {
 
     public boolean isSortedDescendant(int[] array){
         if(array == null || array.length == 0) return true;
-        for(int i = 0; i < array.length - 1; i++){
+        for(int i = 1; i < array.length; i++){
             if(array[i - 1] <= array[i]) return false;
         }
         return true;
     }
 
     public void cube(int[]array){
-        for(int x : array){
-            array[x] *= array[x]*array[x]*array[x];
-        }
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i] * array[i] * array[i];
+            }
 
     }
 
@@ -112,6 +108,7 @@ public class FirstSteps {
     }
 
     public boolean isPalindrome(int[]array){
+        if (array == null) return false;
         int left = 0, right = array.length - 1;
         while(left < right){
             if(array[left] != array[right]){
@@ -145,10 +142,10 @@ public class FirstSteps {
     }
 
     public int diagonalMax(int[][] matrix){
-        if(matrix == null || matrix.length == 0 || matrix[0].length == 0) return Integer.MIN_VALUE;
+        if (matrix == null || matrix.length == 0) return Integer.MIN_VALUE;
         int max = Integer.MIN_VALUE;
-        for(int i =0; i < matrix.length; i++){
-            if(i < matrix[i].length && matrix[i][i] > max){
+        for (int i = 0; i < matrix.length && i < matrix[i].length; i++) {
+            if (matrix[i][i] > max) {
                 max = matrix[i][i];
             }
         }
