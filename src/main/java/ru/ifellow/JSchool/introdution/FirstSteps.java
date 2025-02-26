@@ -39,12 +39,14 @@ public class FirstSteps {
     }
 
     public int mul(int[] array){
-         if (array.length == 0) return 0;
-         int product = 1;
-         for (int x : array) {
-             product *= x;
-         }
-         return product;
+        int x = 0;
+        if (array != null && array.length != 0) {
+            x = 1;
+            for (int i : array) {
+                x *= i;
+            }
+        }
+        return x;
     }
 
     public int min(int[] array){
@@ -75,9 +77,10 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[] array){
-        if(array == null || array.length == 0) return true;
-        for(int i = 1; i < array.length; i++){
-            if(array[i - 1] <= array[i]) return false;
+        if(array != null || array.length != 0) {
+            for (int i = 0; i < array.length-1; i++) {
+                if (array[i] <= array[i+1]) return false;
+            }
         }
         return true;
     }
